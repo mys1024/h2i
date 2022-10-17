@@ -8,6 +8,7 @@ specifiers:
   '@vitest/coverage-c8': ^0.24.3
   eslint: ^8.25.0
   eslint-plugin-solid: ^0.7.3
+  html-to-image: ^1.10.8
   solid-js: ^1.5.8
   typescript: ^4.8.4
   unocss: ^0.45.29
@@ -19,6 +20,7 @@ specifiers:
 dependencies:
   '@solidjs/router': 0.5.0_solid-js@1.5.8
   '@unocss/reset': 0.45.29
+  html-to-image: 1.10.8
   solid-js: 1.5.8
 
 devDependencies:
@@ -2253,6 +2255,10 @@ packages:
     resolution: {integrity: sha512-vy7ClnArOZwCnqZgvv+ddgHgJiAFXe3Ge9ML5/mBctVJoUoYPCdxVucOywjDARn6CVoh3dRSFdPHy2sX80L0Wg==}
     engines: {node: '>=8'}
     dev: true
+
+  /html-to-image/1.10.8:
+    resolution: {integrity: sha512-t+JyFJwKDCp4ZwBp4iC/wqw0meQDDc77Qs8OFl5P7RGlIP3LQMvwpD7VXxqQfC7/TfC+GKYlFP6WDYfXTmXHfw==}
+    dev: false
 
   /htmlparser2/8.0.1:
     resolution: {integrity: sha512-4lVbmc1diZC7GUJQtRQ5yBAeUCL1exyMwmForWkRLnwyzWBFxN633SALPMGYaWZvKe9j1pRZJpauvmxENSp/EA==}

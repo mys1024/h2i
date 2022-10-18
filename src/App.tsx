@@ -1,6 +1,7 @@
 import { toPng } from 'html-to-image'
 import { Show, createSignal } from 'solid-js'
 import Editor from '~/components/Editor'
+import Footer from '~/components/Footer'
 
 let sandbox: HTMLDivElement
 
@@ -77,5 +78,7 @@ export default () => (
     <div>
       <button onClick={updatePreview}>Preview</button>
     </div>
+    {/* footer */}
+    <Footer />
   </div>
 )

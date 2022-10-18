@@ -57,6 +57,18 @@ export default () => (
         src={previewSrc()}
       />
     </Show>
+    {/* button */}
+    <div>
+      <button
+        px-2 py-1
+        rounded
+        transition-250
+        bg="gray hover:sky"
+        onClick={updatePreview}
+      >
+        Preview
+      </button>
+    </div>
     {/* editors */}
     <div
       w-full h-120
@@ -73,10 +85,6 @@ export default () => (
         code={css()}
         update={code => setCss(code)}
       />
-    </div>
-    {/* button */}
-    <div>
-      <button onClick={updatePreview}>Preview</button>
     </div>
     {/* footer */}
     <Footer />

@@ -6,12 +6,14 @@ let sandbox: HTMLDivElement
 
 const defaultHtml = `<div class="box">
 Hi 😊
-</div>`
+</div>
+`
 
 const defaultCss = `.box {
   color: skyblue;
   font-size: 3em;
-}`
+}
+`
 
 const [html, setHtml] = createSignal(defaultHtml)
 const [css, setCss] = createSignal(defaultCss)
@@ -55,18 +57,20 @@ export default () => (
       />
     </Show>
     {/* editors */}
-    <div space-x-4 flex flex-row>
+    <div
+      w-full h-120
+      p-8
+      grid grid-rows-1 grid-cols-2 gap-8
+    >
       <Editor
+        lang='html'
         code={html()}
         update={code => setHtml(code)}
-        title="html-editor"
-        placeholder="HTML"
       />
       <Editor
+        lang='css'
         code={css()}
         update={code => setCss(code)}
-        title="css-editor"
-        placeholder="CSS"
       />
     </div>
     {/* button */}

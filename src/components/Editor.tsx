@@ -1,25 +1,43 @@
+import { onMount } from 'solid-js'
+import * as monaco from 'monaco-editor'
+import DefaultWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
+import CssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker'
+import HtmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker'
+
+// workers
+const defaultWorker = new DefaultWorker()
+const cssWorker = new CssWorker()
+const htmlWorker = new HtmlWorker()
+
+// monaco env
+self.MonacoEnvironment = {
+  getWorker(workerId: string, label: string) {
+    if (label === 'css')
+      return cssWorker
+    if (label === 'html')
+      return htmlWorker
+    return defaultWorker
+  },
+}
+
 export default (
   props: {
     code: string
+    lang: 'text' | 'html' | 'css'
     update: (code: string) => void
-    title: string
-    placeholder: string
   },
-) => (
-  <div>
-    <textarea
-      cols="30"
-      rows="10"
-      outline-none
-      p-2
-      text-black
-      value={props.code}
-      name={props.title}
-      title={props.title}
-      placeholder={props.placeholder}
-      onInput={
-        evt => props.update((evt.target as HTMLTextAreaElement).value)
-      }
-    />
-  </div>
-)
+) => {
+  let container: HTMLDivElement
+  onMount(() => {
+    const editor = monaco.editor.create(container as HTMLDivElement, {
+      value: props.code,
+      language: props.lang,
+      theme: 'vs-dark',
+      minimap: { enabled: false },
+    })
+    editor.onDidChangeModelContent(() => {
+      props.update(editor.getValue())
+    })
+  })
+  return <div ref={container} w-full h-full />
+}

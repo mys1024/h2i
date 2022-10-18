@@ -16,6 +16,7 @@
   "dependencies": {
     "@unocss/reset": "^0.45.29",
     "html-to-image": "^1.10.8",
+    "monaco-editor": "^0.34.1",
     "solid-js": "^1.5.8"
   },
   "devDependencies": {

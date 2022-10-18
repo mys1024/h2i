@@ -1,19 +1,3 @@
-# Solidify
+# H2I
 
-A SolidJS stater template.
-
-Demo: [https://solidify-one.vercel.app](https://solidify-one.vercel.app)
-
-## Feature
-
-- pnpm
-
-- Vite
-
-- TypeScript
-
-- UnoCSS
-
-- ESLint
-
-- Vitest
+Convert HTML to image.

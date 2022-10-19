@@ -14,19 +14,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@unocss/reset": "^0.45.29",
+    "@unocss/reset": "^0.45.30",
     "html-to-image": "^1.10.8",
     "monaco-editor": "^0.34.1",
-    "solid-js": "^1.5.8"
+    "solid-js": "^1.5.9"
   },
   "devDependencies": {
     "@antfu/eslint-config-ts": "^0.27.0",
-    "@unocss/preset-attributify": "^0.45.29",
+    "@unocss/preset-attributify": "^0.45.30",
     "@vitest/coverage-c8": "^0.24.3",
     "eslint": "^8.25.0",
     "eslint-plugin-solid": "^0.7.3",
     "typescript": "^4.8.4",
-    "unocss": "^0.45.29",
+    "unocss": "^0.45.30",
     "vite": "^3.1.8",
     "vite-plugin-easy-resolve-alias": "^2.0.0",
     "vite-plugin-solid": "^2.3.9",

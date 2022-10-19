@@ -3,24 +3,23 @@ import { createSignal } from 'solid-js'
 import Editor from '~/components/Editor'
 import Footer from '~/components/Footer'
 
-let sandbox: HTMLDivElement
-
 const defaultHtml = `<div class="box">
-Hi 😊
+  Hi 😊
 </div>
-`
 
-const defaultCss = `.box {
-  color: skyblue;
-  font-size: 3em;
-}
+<style>
+  .box {
+    color: skyblue;
+    font-size: 3em;
+  }
+</style>
 `
 
 export default () => {
-  const [html, setHtml] = createSignal(defaultHtml)
-  const [css, setCss] = createSignal(defaultCss)
-  const [url, setUrl] = createSignal('')
+  let sandbox: HTMLDivElement
   let anchor: HTMLAnchorElement
+  const [html, setHtml] = createSignal(defaultHtml)
+  const [url, setUrl] = createSignal('')
 
   async function save(type: 'png' | 'jpg' | 'svg') {
     switch (type) {
@@ -41,12 +40,9 @@ export default () => {
 
   return (
     <div
-      space-y-12
-      flex flex-col
-      min-h-100vh
-      items-center
-      bg="#282c34"
-      text-white
+      p-4 min-h-100vh
+      flex flex-col items-center space-y-12
+      bg-black text-white
     >
       {/* sandbox */}
       <div>
@@ -55,10 +51,6 @@ export default () => {
           ref={sandbox}
           // eslint-disable-next-line solid/no-innerhtml
           innerHTML={html()}
-        />
-        <style
-          // eslint-disable-next-line solid/no-innerhtml
-          innerHTML={css()}
         />
         <a ref={anchor} href={url()} download="image" />
       </div>
@@ -86,21 +78,12 @@ export default () => {
           Save as SVG
         </button>
       </div>
-      {/* editors */}
-      <div
-        w-full h-120
-        p-8
-        grid grid-rows-1 grid-cols-2 gap-8
-      >
+      {/* editor */}
+      <div h-125 w="full md:3/5 xl:2/5">
         <Editor
           lang='html'
           code={html()}
           update={code => setHtml(code)}
-        />
-        <Editor
-          lang='css'
-          code={css()}
-          update={code => setCss(code)}
         />
       </div>
       {/* footer */}

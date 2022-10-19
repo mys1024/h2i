@@ -1,19 +1,15 @@
 import { onMount } from 'solid-js'
 import * as monaco from 'monaco-editor'
 import DefaultWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
-import CssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker'
 import HtmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker'
 
 // workers
 const defaultWorker = new DefaultWorker()
-const cssWorker = new CssWorker()
 const htmlWorker = new HtmlWorker()
 
 // monaco env
 self.MonacoEnvironment = {
   getWorker(workerId: string, label: string) {
-    if (label === 'css')
-      return cssWorker
     if (label === 'html')
       return htmlWorker
     return defaultWorker

@@ -40,7 +40,7 @@ export default () => {
 
   return (
     <div
-      p-4 min-h-100vh
+      px-4 py-8 min-h-100vh
       flex flex-col items-center space-y-12
       bg="#282c34" text-white
     >

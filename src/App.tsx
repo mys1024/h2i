@@ -16,7 +16,7 @@ const defaultHtml = `<div class="box">
 `
 
 export default () => {
-  let sandbox: HTMLDivElement
+  let target: HTMLDivElement
   let anchor: HTMLAnchorElement
   const [html, setHtml] = createSignal(defaultHtml)
   const [url, setUrl] = createSignal('')
@@ -24,13 +24,13 @@ export default () => {
   async function save(type: 'png' | 'jpg' | 'svg') {
     switch (type) {
       case 'png':
-        setUrl(await toPng(sandbox))
+        setUrl(await toPng(target))
         break
       case 'jpg':
-        setUrl(await toJpeg(sandbox))
+        setUrl(await toJpeg(target))
         break
       case 'svg':
-        setUrl(await toSvg(sandbox))
+        setUrl(await toSvg(target))
         break
       default:
         throw new Error(`Unknown type: ${type}`)
@@ -42,18 +42,19 @@ export default () => {
     <div
       p-4 min-h-100vh
       flex flex-col items-center space-y-12
-      bg-black text-white
+      bg="#282c34" text-white
     >
-      {/* sandbox */}
-      <div>
+      {/* target */}
+      <div bg-black>
         <div
-          id="sandbox"
-          ref={sandbox}
+          id="target"
+          ref={target}
           // eslint-disable-next-line solid/no-innerhtml
           innerHTML={html()}
         />
-        <a ref={anchor} href={url()} download="image" />
       </div>
+      {/* download anchor */}
+      <a ref={anchor} href={url()} download="image" />
       {/* button */}
       <div space-x-4>
         <button
